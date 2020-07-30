@@ -1,4 +1,4 @@
-![alternative Text] (/logo/IDA.png)
+![] (./logo/IDA.png)
 IDA TSN Simulator is an open source library for the simulation of a TSN-based automotive network. The library is designed to run within the OMNeT++ simulation engine.  The IDA TSN Simulator is developed by the Institute of Computer and Network Engineering (IDA) of TU Braunschweig.
 
 The provided TSN simulation library consists of the following main elements:
