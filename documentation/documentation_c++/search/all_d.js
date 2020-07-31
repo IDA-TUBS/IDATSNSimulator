@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['nbrreaders_342',['nbrReaders',['../classParticipant.html#a80eb713eea2e46bb2c0e33a425aad058',1,'Participant']]],
+  ['nbrstreams_343',['nbrStreams',['../classReaderHistory.html#a1814fc320afc301dc6a6912cba187c26',1,'ReaderHistory']]],
+  ['nbrwriters_344',['nbrWriters',['../classParticipant.html#a0228791d169462a30f9af43df239721f',1,'Participant']]],
+  ['newestframeid_345',['newestFrameID',['../structlostFrameCounter.html#a962fdb8d265c101394b772fbedfd7499',1,'lostFrameCounter']]],
+  ['next_5fhop_5fmac_346',['NEXT_HOP_MAC',['../ForwardingLogic_8h.html#add59c0afccc493f07d285fb2f2c96b42a3a82be7d76c993edf920c4224825b00d',1,'ForwardingLogic.h']]],
+  ['nextmsgready_347',['nextMsgReady',['../classShaper.html#af759261e83c33bf30974ee87599215ab',1,'Shaper']]],
+  ['nextstate_348',['nextState',['../classArbiterIEEE802__1Qbv.html#af8156b00418775f16c22bac5018e2a0c',1,'ArbiterIEEE802_1Qbv']]],
+  ['noncritical_5fguardband_349',['NONCRITICAL_GUARDBAND',['../ArbiterIEEE802__1Qbv_8h.html#a6d656ddecd82a0e912bbff5af0d56219acc4623aa02eefab1e7d06ffd40638147',1,'ArbiterIEEE802_1Qbv.h']]],
+  ['noncritical_5fguardband_5fsegment_350',['NONCRITICAL_GUARDBAND_SEGMENT',['../TimeAwareShaperSegmentStatistic_8h.html#abb929d0f9d64b21e332f4f3200f2cdfaae07b0bdeeb84028d1997cee21523aa49',1,'TimeAwareShaperSegmentStatistic.h']]],
+  ['noncritical_5fsending_351',['NONCRITICAL_SENDING',['../ArbiterIEEE802__1Qbv_8h.html#a6d656ddecd82a0e912bbff5af0d56219ad799079afb3a9b789148371820b0e61a',1,'ArbiterIEEE802_1Qbv.h']]],
+  ['noncritical_5fsending_5fsegment_352',['NONCRITICAL_SENDING_SEGMENT',['../TimeAwareShaperSegmentStatistic_8h.html#abb929d0f9d64b21e332f4f3200f2cdfaa63c2904802de56445e6f6faff3e2fee2',1,'TimeAwareShaperSegmentStatistic.h']]],
+  ['noncriticalguardbandsegmentduration_353',['noncriticalGuardBandSegmentDuration',['../classArbiterIEEE802__1Qbv.html#aa65fcab578e1f85ec17dc3978f15b2c9',1,'ArbiterIEEE802_1Qbv']]],
+  ['noncriticalguardbandsegmentstarts_354',['noncriticalGuardbandSegmentStarts',['../classTimeAwareShaperSegmentStatistic.html#aa6090b46fbde764a418498b71133ca27',1,'TimeAwareShaperSegmentStatistic']]],
+  ['noncriticalintervalduration_355',['noncriticalIntervalDuration',['../classArbiterIEEE802__1Qbv.html#a9a4b135244637d16f0a3b03faf77b71d',1,'ArbiterIEEE802_1Qbv']]],
+  ['noncriticalsendingsegmentduration_356',['noncriticalSendingSegmentDuration',['../classArbiterIEEE802__1Qbv.html#a04e1bbc231d84226038d5260ebcfb3c1',1,'ArbiterIEEE802_1Qbv']]],
+  ['noncriticalsendingsegmentstarts_357',['noncriticalSendingSegmentStarts',['../classTimeAwareShaperSegmentStatistic.html#a747b58b805195e727b03013020cd322c',1,'TimeAwareShaperSegmentStatistic']]],
+  ['numberfragments_358',['numberFragments',['../classHistorySampleEntry.html#aa06d2822cb4988601451a61eeeb5d068',1,'HistorySampleEntry']]],
+  ['numberpriorities_359',['numberPriorities',['../classArbiterAVB.html#a49acb9451a3ebbf91866291ee67f9318',1,'ArbiterAVB::numberPriorities()'],['../classArbiterIEEE802__1Q.html#ac4912fcbe0c50d7ae7f156cff3f0eadb',1,'ArbiterIEEE802_1Q::numberPriorities()'],['../classArbiterIEEE802__3.html#af26e664e60e9e11f735f06e010b9c7ec',1,'ArbiterIEEE802_3::numberPriorities()'],['../classClassifierPriority.html#abab285dc0688f426d858d3f436af5cbc',1,'ClassifierPriority::numberPriorities()']]],
+  ['numbersupportedpriorities_360',['numberSupportedPriorities',['../classArbiterIEEE802__1Qbv.html#a9b7f41b6ebe5d00859c1c6b467239466',1,'ArbiterIEEE802_1Qbv::numberSupportedPriorities()'],['../classBuffersModule.html#a62bf0d399ea7636649011810c1520329',1,'BuffersModule::numberSupportedPriorities()']]],
+  ['numbytes_361',['numBytes',['../classIngressPort.html#a59f5ce29c23d9fec07f3756f897a6f0a',1,'IngressPort']]]
+];

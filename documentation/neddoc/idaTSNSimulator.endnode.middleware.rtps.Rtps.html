@@ -1,0 +1,359 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Compound Module <i>Rtps</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode.middleware.rtps<br/><b>File: <a href="src-endnode-middleware-rtps-Rtps.ned.html">src/endnode/middleware/rtps/Rtps.ned</a></b><br/>
+<p>The module containing the RTPS entities</p>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>participantId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>-1</td>
+   <td>
+<p><a href="idaTSNSimulator.endnode.middleware.rtps.participant.Participant.html">Participant</a> recognition</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>numWriter</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Specify the number of RTPS reader and writer</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>numReader</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Port variables
+       int PB = default(7400);
+       int DG = default(250);
+       int PG = default(2);
+       int d0 = default(0);
+       int d1 = default(10);
+       int d2 = default(1);
+       int d3 = default(11);
+       int domainId = default(0);</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>class</td>
+   <td><i>Rtps</i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/layer;bgb=450,421</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>generatorIn [ ]</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Generator inputs connected to the writers</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sinkOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>Output to the sample sink</p>
+</td>
+</tr>
+<tr class="local">
+   <td>udpIpIn</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Connection to and from the UDP/IP stack</p>
+</td>
+</tr>
+<tr class="local">
+   <td>udpIpOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.sourceMac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>Stream configuration</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.destinationMac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.entityId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.destinationEntityId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.streamEthernetPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.globalStreamId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Should match to the corresponding globalStreamId of the writer</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.historySizeQoS</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>QoS parameter configuration</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.transportPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>7</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.ethernetPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>7</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.bestEffort</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.lifespan</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>100ms</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.fragmentSize</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1000</td>
+   <td>
+<p>Fragmentation configuration</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.maximumMtu</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1504</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Writer.html">writer</a>.shapingDuration</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>100us</td>
+   <td>
+<p>Shaping</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.delayunit.DelayUnit.html">delayUnit</a>.duration</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Probabilistic duration</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.delayunit.DelayUnit.html">delayUnit</a>.durationMin</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.delayunit.DelayUnit.html">delayUnit</a>.durationMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.sourceMac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The MAC address of the egress port to use</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.entityId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The own entity ID</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.streamEthernetPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>7</td>
+   <td>
+<p>The used Ethernet priority for messages send by the reader</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.historySizeQoS</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>10</td>
+   <td>
+<p>QoS parameters</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.bestEffort</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.lifespan</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>100ms</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.deadline</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1000us</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">reader</a>.transportPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.endnode.middleware.rtps.contract.IShaper.html">shaper</a>.shaperEnabled</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>It should be possible to enable/disable a shaper</p>
+   </td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

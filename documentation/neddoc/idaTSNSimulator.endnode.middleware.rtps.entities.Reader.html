@@ -1,0 +1,158 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>Reader</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode.middleware.rtps.entities<br/><b>File: <a href="src-endnode-middleware-rtps-entities-Reader.ned.html">src/endnode/middleware/rtps/entities/Reader.ned</a></b><br/><p><a href="../doxy/classReader.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p>The RTPS Readers entity resceives generated samples from RTPS writers.</p>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.middleware.rtps.Rtps.html">Rtps</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The module containing the RTPS entities</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>sourceMac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The MAC address of the egress port to use</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>entityId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The own entity ID</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>streamEthernetPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>7</td>
+   <td>
+<p>The used Ethernet priority for messages send by the reader</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>historySizeQoS</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>10</td>
+   <td>
+<p>QoS parameters</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>bestEffort</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>lifespan</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>100ms</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>deadline</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1000us</td>
+   <td>   </td>
+</tr>
+<tr class="local">
+   <td>transportPriority</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/rx</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>sinkOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>Gate to the sink via the reader join</p>
+</td>
+</tr>
+<tr class="local">
+   <td>dispatcherIn</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Connection with the participant</p>
+</td>
+</tr>
+<tr class="local">
+   <td>dispatcherOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+</td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

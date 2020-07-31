@@ -1,0 +1,154 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Msg File <i>src/endnode/middleware/rtps/messages/RTPSEthMessage.msg</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="src-endnode-middleware-rtps-messages-RTPSEthMessage.html">RTPSEthMessage</a>
+   </td>
+   <td>
+<i>message</i>
+   </td>
+   <td>
+
+<p>RTPS message specification send over Ethernet</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #000000; "> {{
+#</span><span style="color: #000000; ">include</span><span style="color: #000000; "> </span><span style="color: #008000; ">&quot;../../../../messagetype/EthernetFrame_m.h&quot;</span><span style="color: #000000; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #000000; "> </span><span style="color: #000000; ">EthernetFrame</span><span style="color: #000000; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// RTPS message specification send over Ethernet
+//
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #000000; "> </span><span style="color: #000000; ">RTPSEthMessage</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #000000; "> </span><span style="color: #000000; ">EthernetFrame</span><span style="color: #000000; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// Calculated values
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">payloadSize</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">protocolOverhead</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">rtpsMessageSize</span><span style="color: #000000; ">;
+    
+    </span><span style="color: #808080; font-style: italic; ">//  Locator information
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">sourceMac</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">destinationMac</span><span style="color: #000000; ">;
+    
+    </span><span style="color: #808080; font-style: italic; ">// Timing info on sample granularity
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">/// Generation time in the generator
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">generationTime</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">/// Reception time at the writer
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">writerArrivalTime</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">/// First fragment send at the writer
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">writerFirstInjectionTime</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">/// Completely received at the reader
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">subscriberReceiveTime</span><span style="color: #000000; ">;
+    
+    </span><span style="color: #808080; font-style: italic; ">// Other evaluation data
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// The unique stream ID of a writer
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">globalStreamId</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// The unique rtps message ID of an entity
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">int64_t</span><span style="color: #000000; ">  </span><span style="color: #000000; ">rtpsMsgSequenceId</span><span style="color: #000000; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// QoS context
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">transportPriority</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">ethernetPriority</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">generalFragmentSize</span><span style="color: #000000; ">;
+       
+    </span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// RTPS message content
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #000000; ">    
+    </span><span style="color: #808080; font-style: italic; ">// Header
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">sourceNodeId</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// GUID part 1
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">sourceParticipantId</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// GUID part 2
+</span><span style="color: #000000; ">        
+    </span><span style="color: #808080; font-style: italic; ">// AckNack
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">ackNackIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">readerId</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">writerId</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; ">  </span><span style="color: #000000; ">readerSNStateBase</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; ">  </span><span style="color: #000000; ">readerSNStateNbrBits</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">readerSNStateBitmap</span><span style="color: #000000; ">[</span><span style="color: #008000; ">256</span><span style="color: #000000; ">];
+        
+    </span><span style="color: #808080; font-style: italic; ">// Data
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">dataIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// readerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">writerSN</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">sampleSize</span><span style="color: #000000; ">;
+    
+    </span><span style="color: #808080; font-style: italic; ">// DataFrag
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">dataFragIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// readerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerSN (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">fragmentStartingNum</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">fragmentsInSubmessage</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">fragmentSize</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// sampleSize (s.o.)
+</span><span style="color: #000000; ">    
+    
+    </span><span style="color: #808080; font-style: italic; ">// HeartBeat
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">heartBeatIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// readerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">firstSN</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">lastSN</span><span style="color: #000000; ">;
+    
+
+    </span><span style="color: #808080; font-style: italic; ">// HeartBeatFrag
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">heartBeatFragIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// readerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerId (s.o.)
+</span><span style="color: #000000; ">    
+    </span><span style="color: #808080; font-style: italic; ">// InfoDestination
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">infoDestinationIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">destinationNodeId</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// GUID part 1
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">destinationParticipantId</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// GUID part 2
+</span><span style="color: #000000; ">    
+    </span><span style="color: #808080; font-style: italic; ">// InfoTimestamp
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">infoTimestampIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">timestamp</span><span style="color: #000000; ">;
+    
+    </span><span style="color: #808080; font-style: italic; ">// NackFrag
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">nackFragIsSet</span><span style="color: #000000; ">;
+    </span><span style="color: #808080; font-style: italic; ">// readerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerId (s.o.)
+</span><span style="color: #000000; ">    </span><span style="color: #808080; font-style: italic; ">// writerSN (s.o.)    
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; ">  </span><span style="color: #000000; ">fragmentNumberStateBase</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; ">  </span><span style="color: #000000; ">fragmentNumberStateNbrBits</span><span style="color: #000000; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">fragmentNumberBitmap</span><span style="color: #000000; ">[</span><span style="color: #008000; ">256</span><span style="color: #000000; ">];
+    
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

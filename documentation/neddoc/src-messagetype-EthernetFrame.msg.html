@@ -1,0 +1,59 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Msg File <i>src/messagetype/EthernetFrame.msg</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="src-messagetype-EthernetFrame.html">EthernetFrame</a>
+   </td>
+   <td>
+<i>message</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #000000; "> </span><span style="color: #000000; ">EthernetFrame</span><span style="color: #000000; ">
+{
+	</span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">frameSize</span><span style="color: #000000; ">;      </span><span style="color: #808080; font-style: italic; ">//size of the frame in bytes
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">payloadSize</span><span style="color: #000000; ">;    </span><span style="color: #808080; font-style: italic; ">//size of the payload (including padding bits, which are necessary when the payload is too short)
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">packetSize</span><span style="color: #000000; ">;     </span><span style="color: #808080; font-style: italic; ">//frame + sync/ifg
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">MACsource</span><span style="color: #000000; ">;      </span><span style="color: #808080; font-style: italic; ">//MAC address of the source interface unit
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">MACdest</span><span style="color: #000000; ">;        </span><span style="color: #808080; font-style: italic; ">//MAC address of the destination interface unit
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">priority</span><span style="color: #000000; ">;       </span><span style="color: #808080; font-style: italic; ">//global priority of the stream, defining the traffic class in AVB/TSN/*02.1Q, is not unique! 
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">streamID</span><span style="color: #000000; ">;       </span><span style="color: #808080; font-style: italic; ">// A global ID that identifies the application
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">isMulticast</span><span style="color: #000000; ">;   </span><span style="color: #808080; font-style: italic; ">// if switched to true a multcast message otherwie singlecast
+</span><span style="color: #000000; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #000000; "> </span><span style="color: #000000; ">isBroadcast</span><span style="color: #000000; ">;   </span><span style="color: #808080; font-style: italic; ">// is this a broadcast message? (if so, the destination MAC should be -1)
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">int64_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">frameSequenceID</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// The frame sequence ID. It is unique for a given global ID
+</span><span style="color: #000000; ">    </span><span style="color: #000000; ">simtime_t</span><span style="color: #000000; "> </span><span style="color: #000000; ">injectionTime</span><span style="color: #000000; ">;
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

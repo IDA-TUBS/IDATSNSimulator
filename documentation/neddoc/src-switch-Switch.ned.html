@@ -1,0 +1,106 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/switch/Switch.ned</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.Switch.html">Switch</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.Switch.html">Switch</a> is the central Module which includes a Ingress Port, Forwarding Logic and 
+Egress Port to process, store and forward Frames</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">.</span><span style="color: #000000; ">ingressport</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IngressPort</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">.</span><span style="color: #000000; ">forwardinglogic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">ForwardingLogic</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">.</span><span style="color: #000000; ">egressport</span><span style="color: #000000; ">.</span><span style="color: #000000; ">EgressPort</span><span style="color: #000000; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// The Switch is the central Module which includes a Ingress Port, Forwarding Logic and 
+// Egress Port to process, store and forward Frames
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">Switch</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #808080; font-style: italic; ">/// The default MAC Address
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">mac</span><span style="color: #000000; "> 				= </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+        </span><span style="color: #808080; font-style: italic; ">/// the default number of Priorities
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">supportedPriorities</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">8</span><span style="color: #000000; ">);
+        </span><span style="color: #808080; font-style: italic; ">/// default path to MAC Table
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #000000; "> </span><span style="color: #000000; ">macTable</span><span style="color: #000000; "> 		= </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;bgb=380,380;i=block/switch&quot;</span><span style="color: #000000; ">);
+        
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #000000; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #000000; "> </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">[];
+        
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)]: </span><span style="color: #000000; ">IngressPort</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">mac</span><span style="color: #000000; "> = </span><span style="color: #000000; ">mac</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=50,70,c,50&quot;</span><span style="color: #000000; ">);
+        }  
+        
+        </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)]: </span><span style="color: #000000; ">EgressPort</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">mac</span><span style="color: #000000; "> = </span><span style="color: #000000; ">mac</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; ">supportedPriorities</span><span style="color: #000000; "> = </span><span style="color: #000000; ">supportedPriorities</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=313.75,70,c,50&quot;</span><span style="color: #000000; ">);
+        }
+        
+        </span><span style="color: #000000; ">forwardingLogic</span><span style="color: #000000; ">: </span><span style="color: #000000; ">ForwardingLogic</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=180,70&quot;</span><span style="color: #000000; ">);
+        }
+        
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; ">:
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)-</span><span style="color: #008000; ">1</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #808080; font-style: italic; ">//in -&gt; ports
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">$</span><span style="color: #000000; ">i</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">] </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">in</span><span style="color: #000000; ">;
+			</span><span style="color: #808080; font-style: italic; ">//port -&gt; frer_elim
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">forwardingLogic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">in</span><span style="color: #000000; ">++;
+
+            </span><span style="color: #808080; font-style: italic; ">//forwarding -&gt; frer_repl
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">forwardingLogic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">out</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">in</span><span style="color: #000000; ">++;
+			</span><span style="color: #808080; font-style: italic; ">//ports -&gt; out
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">$</span><span style="color: #000000; ">o</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">];
+        }
+}
+
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

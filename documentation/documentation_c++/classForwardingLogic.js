@@ -1,0 +1,27 @@
+var classForwardingLogic =
+[
+    [ "ForwardingLogic", "classForwardingLogic.html#ae11c89fcb838a98b43e0a72f500a1424", null ],
+    [ "~ForwardingLogic", "classForwardingLogic.html#af9ab35c4bdc195079b82cef8314a6108", null ],
+    [ "dealWithMulticast", "classForwardingLogic.html#ae1f1dda9c17de792079bef46f7fafaf3", null ],
+    [ "dealWithUnicast", "classForwardingLogic.html#ad2b440ecbdce9c254ae85192d43b7dc2", null ],
+    [ "errorHandling", "classForwardingLogic.html#adae6e5f4217a8ea92f6cbf731a3105ea", null ],
+    [ "forwardingByStreamID", "classForwardingLogic.html#acf974bba2798966faa0926862464a824", null ],
+    [ "getMACTable", "classForwardingLogic.html#a2cd594ebdf19849d704caa0a90fc69bd", null ],
+    [ "getOnlyEntriesForThisSwitch", "classForwardingLogic.html#ad17a6acd92533e2bafb9a880fc68c2dd", null ],
+    [ "getPortIDFromNextHOP", "classForwardingLogic.html#aa0ff1df911c79967c3e36f58766de739", null ],
+    [ "handleMessage", "classForwardingLogic.html#a1139d7a7a99bff3214aeee727227c10a", null ],
+    [ "initialize", "classForwardingLogic.html#a2202c57dd5a03c00a1282b06b3957832", null ],
+    [ "isConnectedModuleEndNode", "classForwardingLogic.html#a9677c5bb9863cab5b51ec9617ba24dbf", null ],
+    [ "isHopMACAddressEqualEndNodeMAC", "classForwardingLogic.html#af3c91686965da68c83f23c4d6be4bfc4", null ],
+    [ "isHopMACAddressEqualSwitchMAC", "classForwardingLogic.html#afac4ba550ebd4d43338b6d8a27a1d3af", null ],
+    [ "isValidNumberOfEntries", "classForwardingLogic.html#ac72f62447fd3d69e31b252515d077d5a", null ],
+    [ "portIDInvalid", "classForwardingLogic.html#a934a1e30bb77953c777dfd4b88058ae1", null ],
+    [ "printSimulationOutputs", "classForwardingLogic.html#ae67d4fe8f1a6bf3ac1339c65fa04d550", null ],
+    [ "ethernetFrame", "classForwardingLogic.html#ad680007a6c27c00618ab40962a4640bb", null ],
+    [ "macTable", "classForwardingLogic.html#ab8716fa4e4f9371f66865f6efdcaac98", null ],
+    [ "macTableFile", "classForwardingLogic.html#a39a059ff9a30d7fa485e4615a251ffbd", null ],
+    [ "parentSwitch", "classForwardingLogic.html#aea427a7613c20d4878b37dc61671de11", null ],
+    [ "streamID", "classForwardingLogic.html#a041275a0ab0a8ed246661a53dd267aec", null ],
+    [ "switchIndex", "classForwardingLogic.html#acb3e45ec21247355916d6e2bccafcac3", null ],
+    [ "switchMAC", "classForwardingLogic.html#add31ac309b26cdf1bd5bea9182bcbd5d", null ]
+];

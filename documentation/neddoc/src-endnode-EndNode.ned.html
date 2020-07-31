@@ -1,0 +1,180 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/endnode/EndNode.ned</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.EndNode.html">EndNode</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The endnode is the high-level module for conncetion to the network.
+Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">generator</span><span style="color: #000000; ">.*;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">sink</span><span style="color: #000000; ">.*;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">contract</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IMiddleware</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">udpipstack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">UdpIpStack</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">Rtps</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">.</span><span style="color: #000000; ">egressport</span><span style="color: #000000; ">.</span><span style="color: #000000; ">EgressPort</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">switch</span><span style="color: #000000; ">.</span><span style="color: #000000; ">ingressport</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IngressPort</span><span style="color: #000000; ">;
+</span><span style="color: #808080; font-style: italic; ">//
+// The endnode is the high-level module for conncetion to the network.
+// Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">EndNode</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        
+        </span><span style="color: #808080; font-style: italic; ">/// The number of Middleware Writers starting with one Sample Generator each.
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numMwStreams</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+        
+        </span><span style="color: #808080; font-style: italic; ">/// The number of Middleware Readers represented by one Reader each.
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numMwSinks</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">/// The number of pure Ethernet packet streams starting with one Ethernet Generator each.
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numStreams</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">/// The default MAC Address of the endnode
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">mac</span><span style="color: #000000; ">;
+        
+        </span><span style="color: #808080; font-style: italic; ">/// Ethernet Port configurations
+</span><span style="color: #000000; ">        </span><span style="color: #808080; font-style: italic; ">/// Standard Ethernet supports up to 8 priorities
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">supportedPriorities</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">8</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">maxMsgPerQueue</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(-</span><span style="color: #008000; ">1</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// -1 = ignore this restriction
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">maxBytesPerQueue</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">4096</span><span style="color: #000000; ">); </span><span style="color: #808080; font-style: italic; ">// 4kbyte of buffer per port, -1 = ignore this restriction
+</span><span style="color: #000000; ">
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;bgb=680,419;i=block/rxtx&quot;</span><span style="color: #000000; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #000000; ">:
+        
+        </span><span style="color: #808080; font-style: italic; ">// In- Out- connections to the Ethernet Network
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #000000; "> </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">[];
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// Ethernet Ports
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)]: </span><span style="color: #000000; ">EgressPort</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=477,319,row,100&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)]: </span><span style="color: #000000; ">IngressPort</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=235,319,row,100&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The UDP-IP Stack to forward messages between the middleware, Ethernet generators and sinks and the Ethernet ports
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">: </span><span style="color: #000000; ">UdpIpStack</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=445,211&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The middleware
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;Rtps&quot;</span><span style="color: #000000; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IMiddleware</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">numWriter</span><span style="color: #000000; "> = </span><span style="color: #000000; ">numMwStreams</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; ">numReader</span><span style="color: #000000; "> = </span><span style="color: #000000; ">numMwSinks</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=294,146&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Generators
+</span><span style="color: #000000; ">        </span><span style="color: #808080; font-style: italic; ">// Pure ethernet generators
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">generator</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numStreams</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">EthGenerator</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=438,58,r,50&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">// Middleware sample generators
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">sampleGenerator</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numMwStreams</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">sampleGenerator</span><span style="color: #000000; "> 
+        {
+
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=124,58&quot;</span><span style="color: #000000; ">);
+        }     
+        
+        </span><span style="color: #808080; font-style: italic; ">/// Sinks
+</span><span style="color: #000000; ">        </span><span style="color: #808080; font-style: italic; ">/// Middleware sample sink
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">sampleSink</span><span style="color: #000000; ">: </span><span style="color: #000000; ">SampleSink</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">mac</span><span style="color: #000000; "> = </span><span style="color: #000000; ">mac</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=285,58&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Pure Ethernet sink
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">sinkPureEthernet</span><span style="color: #000000; ">: </span><span style="color: #000000; ">Sink</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">mac</span><span style="color: #000000; "> = </span><span style="color: #000000; ">mac</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=589,58&quot;</span><span style="color: #000000; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the generators
+</span><span style="color: #000000; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #000000; ">numMwStreams</span><span style="color: #000000; ">-</span><span style="color: #008000; ">1</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">sampleGenerator</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">generatorIn</span><span style="color: #000000; ">++;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #000000; ">numStreams</span><span style="color: #000000; ">-</span><span style="color: #008000; ">1</span><span style="color: #000000; ">
+        {
+            </span><span style="color: #000000; ">generator</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">generatorIn</span><span style="color: #000000; ">++;
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the Ports to the network and the UDP/IP stack
+</span><span style="color: #000000; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #000000; ">(</span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">)-</span><span style="color: #008000; ">1</span><span style="color: #000000; "> 
+        {
+            </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">$</span><span style="color: #000000; ">i</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">] </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">in</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">ethernetPorts</span><span style="color: #000000; ">$</span><span style="color: #000000; ">o</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">];
+
+            </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">egressPortOut</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">egressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">in</span><span style="color: #000000; ">++;
+            </span><span style="color: #000000; ">ingressPort</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">ingressPortIn</span><span style="color: #000000; ">++;
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the UDP/IP Stack
+</span><span style="color: #000000; ">        </span><span style="color: #808080; font-style: italic; ">/// Connect the UDP/IP Stack with the pure Ethernet sink
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkPureEthernet</span><span style="color: #000000; ">.</span><span style="color: #000000; ">in</span><span style="color: #000000; ">;
+        </span><span style="color: #808080; font-style: italic; ">// Connect the UDP/IP Stack with the middleware
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">mwOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">udpIpIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">udpIpOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpStack</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middlewareIn</span><span style="color: #000000; ">;
+
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the sample sink to the middleware
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">sampleSink</span><span style="color: #000000; ">.</span><span style="color: #000000; ">in</span><span style="color: #000000; ">;
+
+
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

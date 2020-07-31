@@ -1,0 +1,101 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>UdpIpStack</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode.udpipstack<br/><b>File: <a href="src-endnode-udpipstack-UdpIpStack.ned.html">src/endnode/udpipstack/UdpIpStack.ned</a></b><br/><p><a href="../doxy/classUdpIpStack.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p>Passes the data from the middleware and pure Ethernet generators to the ethernet network ports.
+Passes the data from the Ethernet network ports to either the middleware or the pure Ethernet sink.</p>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.EndNode.html">EndNode</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The endnode is the high-level module for conncetion to the network.
+Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/socket</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>middlewareIn</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Connection to the middleware module</p>
+</td>
+</tr>
+<tr class="local">
+   <td>mwOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>Connection from the middleware module</p>
+</td>
+</tr>
+<tr class="local">
+   <td>generatorIn [ ]</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Connections from the pure Ethernet generators.</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sinkOut</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>Connection to the sink.</p>
+</td>
+</tr>
+<tr class="local">
+   <td>ingressPortIn [ ]</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>Input Connections from the Ethernet network</p>
+</td>
+</tr>
+<tr class="local">
+   <td>egressPortOut [ ]</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>Output Connections to the Ethernet network</p>
+</td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

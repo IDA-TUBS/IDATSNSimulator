@@ -1,0 +1,126 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Message <i>EthernetFrame</i></h2>
+<b>File: <a href="src-messagetype-EthernetFrame.msg.html">src/messagetype/EthernetFrame.msg</a></b><br/><p>(no description)</p><h3 class="subtitle">Fields:</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>frameSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>size of the frame in bytes</p>
+</td>
+</tr>
+<tr class="local">
+   <td>payloadSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>size of the payload (including padding bits, which are necessary when the payload is too short)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>packetSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>frame + sync/ifg</p>
+</td>
+</tr>
+<tr class="local">
+   <td>MACsource</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>MAC address of the source interface unit</p>
+</td>
+</tr>
+<tr class="local">
+   <td>MACdest</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>MAC address of the destination interface unit</p>
+</td>
+</tr>
+<tr class="local">
+   <td>priority</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>global priority of the stream, defining the traffic class in AVB/TSN/*02.1Q, is not unique!</p>
+</td>
+</tr>
+<tr class="local">
+   <td>streamID</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>A global ID that identifies the application</p>
+</td>
+</tr>
+<tr class="local">
+   <td>isMulticast</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>if switched to true a multcast message otherwie singlecast</p>
+</td>
+</tr>
+<tr class="local">
+   <td>isBroadcast</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>is this a broadcast message? (if so, the destination MAC should be -1)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>frameSequenceID</td>
+   <td>
+      <i>
+int64_t</i>
+   </td>
+   <td>
+<p>The frame sequence ID. It is unique for a given global ID</p>
+</td>
+</tr>
+<tr class="local">
+   <td>injectionTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td></td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

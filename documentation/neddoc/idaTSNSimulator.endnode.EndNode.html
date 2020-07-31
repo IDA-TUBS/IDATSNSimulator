@@ -1,0 +1,214 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Compound Module <i>EndNode</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode<br/><b>File: <a href="src-endnode-EndNode.ned.html">src/endnode/EndNode.ned</a></b><br/>
+<p>The endnode is the high-level module for conncetion to the network.
+Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.</p>
+<h3 class="subtitle">Networks:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.simulations2020.simpleavbtest.simpleAVBTest.html">simpleAVBTest</a>
+   </td>
+   <td>
+<i>network</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.simulations2020.simpleieee802_3test.simpleIEEE802_3Test.html">simpleIEEE802_3Test</a>
+   </td>
+   <td>
+<i>network</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.simulations2020.simpletastest.simpleTASTest.html">simpleTASTest</a>
+   </td>
+   <td>
+<i>network</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.simulations2020.simpletest.simpleTest.html">simpleTest</a>
+   </td>
+   <td>
+<i>network</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>numMwStreams</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>The number of <a href="idaTSNSimulator.endnode.middleware.Middleware.html">Middleware</a> Writers starting with one <a href="src-endnode-middleware-rtps-messages-Sample.html">Sample</a> Generator each.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>numMwSinks</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>The number of <a href="idaTSNSimulator.endnode.middleware.Middleware.html">Middleware</a> Readers represented by one <a href="idaTSNSimulator.endnode.middleware.rtps.entities.Reader.html">Reader</a> each.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>numStreams</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>The number of pure Ethernet packet streams starting with one Ethernet Generator each.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>mac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The default MAC Address of the endnode</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>supportedPriorities</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>8</td>
+   <td>
+<p>Ethernet Port configurations
+Standard Ethernet supports up to 8 priorities</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>maxMsgPerQueue</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>-1</td>
+   <td>
+-1 = ignore this restriction
+   </td>
+</tr>
+<tr class="local">
+   <td>maxBytesPerQueue</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>4096</td>
+   <td>
+<p>4kbyte of buffer per port, -1 = ignore this restriction</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>bgb=680,419;i=block/rxtx</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>ethernetPorts [ ]</xsl:if></td>
+   <td><i>inout</i></td>
+   <td></td>   <td>
+<p>In- Out- connections to the Ethernet Network</p>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="idaTSNSimulator.switch.egressport.EgressPort.html">egressPort</a>.<a href="idaTSNSimulator.switch.egressport.BuffersModule.html">buffer</a>.maxBytesPerQueue</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>4096</td>
+   <td>
+<p>the default size of each buffer per Priority</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.switch.ingressport.IngressPort.html">ingressPort</a>.mac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The default MAC Address</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="idaTSNSimulator.switch.ingressport.IngressPort.html">ingressPort</a>.sampleTimePeriod</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>The default sample Period for Statistic</p>
+   </td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

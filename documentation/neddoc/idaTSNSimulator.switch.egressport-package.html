@@ -1,0 +1,143 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2>Package idaTSNSimulator.switch.egressport</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a>
+   </td>
+   <td>
+<i>module&nbsp;interface</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> Module is a modulinterface for different <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> and defines In- and Oututs.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.ArbiterAVB.html">ArbiterAVB</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.ArbiterAVB.html">ArbiterAVB</a> is a module which is conected to <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> module interface 
+The <a href="idaTSNSimulator.switch.egressport.ArbiterAVB.html">ArbiterAVB</a> arbitrate the in <a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a> stored Frames and send them out
+Based on the Credit Based <a href="idaTSNSimulator.endnode.middleware.rtps.shaper.Shaper.html">Shaper</a> mechanism the frames are selected</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Q.html">ArbiterIEEE802_1Q</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Q.html">ArbiterIEEE802_1Q</a> is a module which is conected to <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> module interface 
+The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Q.html">ArbiterIEEE802_1Q</a> arbitrate the in <a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a> stored Frames and send them out
+Based on priorites the frames are selected</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Qbv.html">ArbiterIEEE802_1Qbv</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Qbv.html">ArbiterIEEE802_1Qbv</a> is a module which is conected to <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> module interface 
+The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_1Qbv.html">ArbiterIEEE802_1Qbv</a> arbitrate the in <a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a> stored Frames and send them out
+Frames are selected for transmission based on the IEEE 802_1Qbv.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_3.html">ArbiterIEEE802_3</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_3.html">ArbiterIEEE802_3</a> is a module which is conected to <a href="idaTSNSimulator.switch.egressport.Arbiter.html">Arbiter</a> module interface 
+The <a href="idaTSNSimulator.switch.egressport.ArbiterIEEE802_3.html">ArbiterIEEE802_3</a> arbitrate the in <a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a> stored Frames and send them out
+Based on round robin principle the frames are selected</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p><a href="idaTSNSimulator.switch.egressport.BuffersModule.html">BuffersModule</a> manages the buffers per port and includes an array of FrameBuffers (one Frame Buffer per individual traffic class / priority)</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.Classifier.html">Classifier</a>
+   </td>
+   <td>
+<i>module&nbsp;interface</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.Classifier.html">Classifier</a> Module is a modulinterface for different Classifiers.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.ClassifierPriority.html">ClassifierPriority</a>
+   </td>
+   <td>
+<i>simple&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.ClassifierPriority.html">ClassifierPriority</a> is a <a href="idaTSNSimulator.switch.egressport.Classifier.html">Classifier</a> based on priority filtering and is an interface for the <a href="idaTSNSimulator.switch.egressport.Classifier.html">Classifier</a> Module.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.egressport.EgressPort.html">EgressPort</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.egressport.EgressPort.html">EgressPort</a> is a module which include the classifier, buffersmoudle and the arbiter module to process and store forwarded frames
+based on the selected classifier and arbiter the behaviour can be influenced</p>
+
+   </td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

@@ -1,0 +1,233 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Compound Module <i>sampleGenerator</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode.generator<br/><b>File: <a href="src-endnode-generator-SampleGenerator.ned.html">src/endnode/generator/SampleGenerator.ned</a></b><br/>
+<p>This modules combines the Traffic source (stimulus) and the RTPS <a href="src-endnode-middleware-rtps-messages-Sample.html">Sample</a> message creator to implement and configure an Ethernet stream generator</p>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.EndNode.html">EndNode</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The endnode is the high-level module for conncetion to the network.
+Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>isEnabled</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>Parameters for the generator</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>globalStreamId</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>-1</td>
+   <td>
+<p>Legacy parameter. Fill here only for output evaluation of the generator</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>periodBase</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>-1s</td>
+   <td>
+<p>The periodicity of a sample burst</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>periodMin</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Minimum period (seconds). If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>periodMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Maximum period (seconds). If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>burstSizeBase</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Burst length in number of samples</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>burstSizeMin</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Minimum burst length (nbr packets). If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>burstSizeMax</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Maximum burst length (nbr packets). If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>intraBurstDurationBase</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Intra burst period (distance between samples inside a burst)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>intraBurstDurationMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Minimum distance (in seconds) between packets inside a burst. If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>intraBurstDurationMin</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>Minimum distance (in seconds) between packets inside a burst. If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>enableOffset</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>Offset (if enabled)</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>offsetDuration</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>the value for offset, see ::useOffset!!!</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sampleSize</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Parameters for the srcTopicSampleHelper
+The size of a sample</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sampleSizeMin</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0B</td>
+   <td>
+<p>Minimum payload (Bytes) If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sampleSizeMax</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0B</td>
+   <td>
+<p>Maximum payload (Bytes) If a probabilistic distribution is used.</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/departure</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>out</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>The output for the generated messages</p>
+</td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

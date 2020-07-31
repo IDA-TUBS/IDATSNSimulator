@@ -1,0 +1,184 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">NED File <i>src/endnode/middleware/rtps/Rtps.ned</i></h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.middleware.rtps.Rtps.html">Rtps</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The module containing the RTPS entities</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+</span><span style="color: #000000; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">contract</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IMiddleware</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">contract</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IAdapter</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">contract</span><span style="color: #000000; ">.</span><span style="color: #000000; ">IShaper</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">delayunit</span><span style="color: #000000; ">.</span><span style="color: #000000; ">DelayUnit</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">entities</span><span style="color: #000000; ">.</span><span style="color: #000000; ">Writer</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">entities</span><span style="color: #000000; ">.</span><span style="color: #000000; ">Reader</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">adapters</span><span style="color: #000000; ">.</span><span style="color: #000000; ">JoinReaders</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">shaper</span><span style="color: #000000; ">.</span><span style="color: #000000; ">Shaper</span><span style="color: #000000; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">Participant</span><span style="color: #000000; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #000000; "> </span><span style="color: #000000; ">idaTSNSimulator</span><span style="color: #000000; ">.</span><span style="color: #000000; ">endnode</span><span style="color: #000000; ">.</span><span style="color: #000000; ">middleware</span><span style="color: #000000; ">.</span><span style="color: #000000; ">rtps</span><span style="color: #000000; ">.</span><span style="color: #000000; ">adapters</span><span style="color: #000000; ">.</span><span style="color: #000000; ">RtpsToEthernetAdapter</span><span style="color: #000000; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// The module containing the RTPS entities
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">Rtps</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IMiddleware</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// Participant recognition
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">participantId</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(-</span><span style="color: #008000; ">1</span><span style="color: #000000; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">/// Specify the number of RTPS reader and writer
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numWriter</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numReader</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+
+
+        </span><span style="color: #808080; font-style: italic; ">// Port variables
+//        int PB = default(7400);
+//        int DG = default(250);
+//        int PG = default(2);
+//        int d0 = default(0);
+//        int d1 = default(10);
+//        int d2 = default(1);
+//        int d3 = default(11);
+//        int domainId = default(0);
+</span><span style="color: #000000; ">
+        </span><span style="color: #000000; font-weight: bold; ">@class</span><span style="color: #000000; ">(</span><span style="color: #000000; ">Rtps</span><span style="color: #000000; ">);
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=block/layer;bgb=450,421&quot;</span><span style="color: #000000; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// Generator inputs connected to the writers
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #000000; "> </span><span style="color: #000000; ">generatorIn</span><span style="color: #000000; ">[];
+        </span><span style="color: #808080; font-style: italic; ">/// Output to the sample sink
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connection to and from the UDP/IP stack
+</span><span style="color: #000000; ">        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpOut</span><span style="color: #000000; ">;
+
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// The participant which serves as a message dispatcher
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">: </span><span style="color: #000000; ">Participant</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; ">participantId</span><span style="color: #000000; "> = </span><span style="color: #000000; ">participantId</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=251,221&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The RTPS writer instances publishing samples
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">writer</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numWriter</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">Writer</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=128,129,row,150&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The delay unit adds artificial delay before delivering the sample to the corresponding wirter
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">delayUnit</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numWriter</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">DelayUnit</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=128,47&quot;</span><span style="color: #000000; ">);
+
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The RTPS reader instances that receive (have subscribed to) samples
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">reader</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numReader</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">Reader</span><span style="color: #000000; "> {
+            </span><span style="color: #808080; font-style: italic; ">//  @display(&quot;p=366,129, row, 100&quot;);
+</span><span style="color: #000000; ">            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=379,129,row,150&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Join the readers to deliver to the shared sample source
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">joinReaders</span><span style="color: #000000; ">: </span><span style="color: #000000; ">JoinReaders</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=379,47&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The shaper shapes messages of all readers and writers before delivering them to the UDP/IP Stack
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">shaper</span><span style="color: #000000; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;Shaper&quot;</span><span style="color: #000000; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IShaper</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=116,277&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// The transport adapter adds the relevant content to the RTPSEthernetFrame in order to be compatible with the underlying Ethernet infrastructure
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">transportAdapter</span><span style="color: #000000; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;RtpsToEthernetAdapter&quot;</span><span style="color: #000000; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IAdapter</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=251,345&quot;</span><span style="color: #000000; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; ">:
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the stream chains (Sample generator, delay unit, writer)
+</span><span style="color: #000000; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #000000; ">numWriter</span><span style="color: #000000; ">-</span><span style="color: #008000; ">1</span><span style="color: #000000; "> {
+            </span><span style="color: #808080; font-style: italic; ">/// Connect the writer with the dispatcher
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">writerIn</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #000000; "> </span><span style="color: #000000; ">writer</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">dispatcherOut</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">writerOut</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">writer</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">dispatcherIn</span><span style="color: #000000; ">;
+
+            </span><span style="color: #808080; font-style: italic; ">/// Connect the generator with the delay unit
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">generatorIn</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">delayUnit</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">in</span><span style="color: #000000; ">;
+
+            </span><span style="color: #808080; font-style: italic; ">/// Connect the delay unit with the writer            
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">delayUnit</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">out</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">writer</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">appIn</span><span style="color: #000000; ">;
+
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the readers 
+</span><span style="color: #000000; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #000000; "> </span><span style="color: #000000; ">i</span><span style="color: #000000; ">=</span><span style="color: #008000; ">0</span><span style="color: #000000; ">..</span><span style="color: #000000; ">numReader</span><span style="color: #000000; ">-</span><span style="color: #008000; ">1</span><span style="color: #000000; "> {
+            </span><span style="color: #808080; font-style: italic; ">/// Connect the readers with the dispatcher
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">readerIn</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #000000; "> </span><span style="color: #000000; ">reader</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">dispatcherOut</span><span style="color: #000000; ">;
+            </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">readerOut</span><span style="color: #000000; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">reader</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">dispatcherIn</span><span style="color: #000000; ">;
+
+            </span><span style="color: #808080; font-style: italic; ">/// Join the readers output
+</span><span style="color: #000000; ">            </span><span style="color: #000000; ">reader</span><span style="color: #000000; ">[</span><span style="color: #000000; ">i</span><span style="color: #000000; ">].</span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">joinReaders</span><span style="color: #000000; ">.</span><span style="color: #000000; ">readersIn</span><span style="color: #000000; ">++;
+
+        }
+        </span><span style="color: #808080; font-style: italic; ">/// Connection the joined readers with the sample sink
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">joinReaders</span><span style="color: #000000; ">.</span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">sinkOut</span><span style="color: #000000; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the send path
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">shaperOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">shaper</span><span style="color: #000000; ">.</span><span style="color: #000000; ">dispatcherIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">shaper</span><span style="color: #000000; ">.</span><span style="color: #000000; ">adapterOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">transportAdapter</span><span style="color: #000000; ">.</span><span style="color: #000000; ">shaperIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">transportAdapter</span><span style="color: #000000; ">.</span><span style="color: #000000; ">udpSocketOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">udpIpOut</span><span style="color: #000000; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">/// Connect the receive path
+</span><span style="color: #000000; ">        </span><span style="color: #000000; ">udpIpIn</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">transportAdapter</span><span style="color: #000000; ">.</span><span style="color: #000000; ">udpSocketIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">transportAdapter</span><span style="color: #000000; ">.</span><span style="color: #000000; ">dispatcherOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">participant</span><span style="color: #000000; ">.</span><span style="color: #000000; ">adapterIn</span><span style="color: #000000; ">;
+
+
+
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

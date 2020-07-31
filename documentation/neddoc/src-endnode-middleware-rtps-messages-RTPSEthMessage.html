@@ -1,0 +1,542 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Message <i>RTPSEthMessage</i></h2>
+<b>File: <a href="src-endnode-middleware-rtps-messages-RTPSEthMessage.msg.html">src/endnode/middleware/rtps/messages/RTPSEthMessage.msg</a></b><br/>
+<p>RTPS message specification send over Ethernet</p>
+<h3 class="subtitle">Extends:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="../../../ofdmFrameworkTest/doc/neddoc/src-messagetype-EthernetFrame.html">EthernetFrame</a>
+   </td>
+   <td>
+<i>message</i>
+   </td>
+   <td>
+<i>(no description)</i>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Fields:</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>payloadSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>size of the payload (including padding bits, which are necessary when the payload is too short)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>protocolOverhead</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>rtpsMessageSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>sourceMac</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>Locator information</p>
+</td>
+</tr>
+<tr class="local">
+   <td>destinationMac</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>generationTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td>
+<p>Timing info on sample granularity
+Generation time in the generator</p>
+</td>
+</tr>
+<tr class="local">
+   <td>writerArrivalTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td>
+<p>Reception time at the writer</p>
+</td>
+</tr>
+<tr class="local">
+   <td>writerFirstInjectionTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td>
+<p>First fragment send at the writer</p>
+</td>
+</tr>
+<tr class="local">
+   <td>subscriberReceiveTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td>
+<p>Completely received at the reader</p>
+</td>
+</tr>
+<tr class="local">
+   <td>globalStreamId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>Other evaluation data
+The unique stream ID of a writer</p>
+</td>
+</tr>
+<tr class="local">
+   <td>rtpsMsgSequenceId</td>
+   <td>
+      <i>
+int64_t</i>
+   </td>
+   <td>
+<p>The unique rtps message ID of an entity</p>
+</td>
+</tr>
+<tr class="local">
+   <td>transportPriority</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>QoS context</p>
+</td>
+</tr>
+<tr class="local">
+   <td>ethernetPriority</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>generalFragmentSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>RTPS message content</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sourceNodeId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>Header</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sourceParticipantId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>GUID part 2</p>
+</td>
+</tr>
+<tr class="local">
+   <td>ackNackIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>AckNack</p>
+</td>
+</tr>
+<tr class="local">
+   <td>readerId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>writerId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>readerSNStateBase</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>readerSNStateNbrBits</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>readerSNStateBitmap</td>
+   <td>
+      <i>
+bool[256]</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>dataIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>Data</p>
+</td>
+</tr>
+<tr class="local">
+   <td>writerSN</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>readerId (s.o.)
+writerId (s.o.)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>sampleSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>dataFragIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>DataFrag</p>
+</td>
+</tr>
+<tr class="local">
+   <td>fragmentStartingNum</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>readerId (s.o.)
+writerId (s.o.)
+writerSN (s.o.)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>fragmentsInSubmessage</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>fragmentSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>sampleSize (s.o.)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>heartBeatIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>HeartBeat</p>
+</td>
+</tr>
+<tr class="local">
+   <td>firstSN</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>readerId (s.o.)
+writerId (s.o.)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>lastSN</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>heartBeatFragIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>HeartBeatFrag</p>
+</td>
+</tr>
+<tr class="local">
+   <td>infoDestinationIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>InfoDestination</p>
+</td>
+</tr>
+<tr class="local">
+   <td>destinationNodeId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>GUID part 1</p>
+</td>
+</tr>
+<tr class="local">
+   <td>destinationParticipantId</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>GUID part 2</p>
+</td>
+</tr>
+<tr class="local">
+   <td>infoTimestampIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>InfoTimestamp</p>
+</td>
+</tr>
+<tr class="local">
+   <td>timestamp</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="local">
+   <td>nackFragIsSet</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>NackFrag</p>
+</td>
+</tr>
+<tr class="local">
+   <td>fragmentNumberStateBase</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>readerId (s.o.)
+writerId (s.o.)
+writerSN (s.o.)</p>
+</td>
+</tr>
+<tr class="local">
+   <td>fragmentNumberStateNbrBits</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td></td>
+</tr>
+<tr class="local">
+   <td>fragmentNumberBitmap</td>
+   <td>
+      <i>
+bool[256]</i>
+   </td>
+   <td>
+</td>
+</tr>
+<tr class="inherited">
+   <td>frameSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>size of the frame in bytes</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>packetSize</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>frame + sync/ifg</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>MACsource</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>MAC address of the source interface unit</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>MACdest</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>MAC address of the destination interface unit</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>priority</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>global priority of the stream, defining the traffic class in AVB/TSN/*02.1Q, is not unique!</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>streamID</td>
+   <td>
+      <i>
+int</i>
+   </td>
+   <td>
+<p>A global ID that identifies the application</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>isMulticast</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>if switched to true a multcast message otherwie singlecast</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>isBroadcast</td>
+   <td>
+      <i>
+bool</i>
+   </td>
+   <td>
+<p>is this a broadcast message? (if so, the destination MAC should be -1)</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>frameSequenceID</td>
+   <td>
+      <i>
+int64_t</i>
+   </td>
+   <td>
+<p>The frame sequence ID. It is unique for a given global ID</p>
+</td>
+</tr>
+<tr class="inherited">
+   <td>injectionTime</td>
+   <td>
+      <i>
+simtime_t</i>
+   </td>
+   <td></td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

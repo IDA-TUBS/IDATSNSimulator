@@ -1,0 +1,112 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>IngressPort</i></h2>
+<b>Package:</b> idaTSNSimulator.switch.ingressport<br/><b>File: <a href="src-switch-ingressport-IngressPort.ned.html">src/switch/ingressport/IngressPort.ned</a></b><br/><p><a href="../doxy/classIngressPort.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p>The IngessPort is the reciever inside components and the first step of processing incomming Frames
+Inside this Port utiliziation stistics are collected</p>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.EndNode.html">EndNode</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The endnode is the high-level module for conncetion to the network.
+Therefore it enables to send or receive Ethernet or RTPS message streams via dedicated Ethernet ports.</p>
+
+   </td>
+</tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.switch.Switch.html">Switch</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>The <a href="idaTSNSimulator.switch.Switch.html">Switch</a> is the central Module which includes a Ingress Port, Forwarding Logic and 
+Egress Port to process, store and forward Frames</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>mac</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>The default MAC Address</p>
+   </td>
+</tr>
+<tr class="local">
+   <td>sampleTimePeriod</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>The default sample Period for Statistic</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=block/departure</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>in</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td></td>
+</tr>
+<tr class="local">
+   <td>out</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td></td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

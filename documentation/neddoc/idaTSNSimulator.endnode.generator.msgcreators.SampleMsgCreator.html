@@ -1,0 +1,57 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Simple Module <i>SampleMsgCreator</i></h2>
+<b>Package:</b> idaTSNSimulator.endnode.generator.msgcreators<br/><b>File: <a href="src-endnode-generator-msgcreators-SampleMsgCreator.ned.html">src/endnode/generator/msgcreators/SampleMsgCreator.ned</a></b><br/><p><a href="../doxy/classSampleMsgCreator.html" target="mainframe"><b>C++ definition</b></a></p>
+
+<p>Create and forwards an RTPS sample after stimulation from a source module</p>
+<h3 class="subtitle">Used in compound modules:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="idaTSNSimulator.endnode.generator.sampleGenerator.html">sampleGenerator</a>
+   </td>
+   <td>
+<i>compound&nbsp;module</i>
+   </td>
+   <td>
+
+<p>This modules combines the Traffic source (stimulus) and the RTPS <a href="src-endnode-middleware-rtps-messages-Sample.html">Sample</a> message creator to implement and configure an Ethernet stream generator</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>fromSrc</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>The port to receive trigger messages from the generator source.</p>
+</td>
+</tr>
+<tr class="local">
+   <td>toStack</xsl:if></td>
+   <td><i>output</i></td>
+   <td></td>   <td>
+<p>The output port to the stack starting with the middleware</p>
+</td>
+</tr>
+</table>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>
