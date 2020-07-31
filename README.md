@@ -29,9 +29,10 @@ IDA TSN Simulator supports:
 	- Buffer backlog
 	- Link utilization
 
-The authors
+Contact
 -----------
-Dr.-Ing. Adam Kostrzewa (kostrzewa@ida.ing.tu-bs.de)
-Dominik Stöhrmann, M.Sc. (stoehrmann@ida.ing.tu-bs.de)
-Anika Christmann, M.Sc. (christmann@ida.ing.tu-bs.de)
-Jonas Peeck, M.Sc. (peeck@ida.ing.tu-bs.de
+Project Leader : Adam Kostrzewa (kostrzewa@ida.ing.tu-bs.de) \
+\
+Dominik Stöhrmann (stoehrmann@ida.ing.tu-bs.de) \
+Anika Christmann (christmann@ida.ing.tu-bs.de) \
+Jonas Peeck (peeck@ida.ing.tu-bs.de) 
