@@ -51,7 +51,7 @@ public:
      *
      * @return 1 if success, see error codes within code
      */
-    int addE2ELatency(int receiverID, int globalStreamID, simtime_t delay);
+    int addE2ELatency(int receiverID, int globalStreamID, int priority, simtime_t delay);
 
     /**
      * Finishes statistics gathering for End-2-End latencies

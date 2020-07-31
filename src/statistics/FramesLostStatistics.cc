@@ -31,7 +31,7 @@ void FramesLostStatistics::addLostFrame(int receiverID, int globalStreamID, int 
     /* collect in vector */
     if (this->vectorLostFramesPerStream == 0)
     {
-        this->vectorLostFramesPerStream = new VectorStatistics2DMap("Lost-Frames-Cntr", "Recv", "SID");
+        this->vectorLostFramesPerStream = new VectorStatistics2DMap("Lost-Frames-Cntr", "Recv", "SID","");
     }
     this->vectorLostFramesPerStream->addInteger(receiverID, globalStreamID, counter);
 
@@ -49,7 +49,7 @@ void FramesLostStatistics::addLostFrameTrace(int receiverID, int globalStreamID,
     /* collect in vector */
     if (this->vectorLostFramesTracePerStream  == 0)
     {
-        this->vectorLostFramesTracePerStream  = new VectorStatistics2DMap("Lost-Frames-Trace", "Recv", "SID");
+        this->vectorLostFramesTracePerStream  = new VectorStatistics2DMap("Lost-Frames-Trace", "Recv", "SID","");
     }
     this->vectorLostFramesTracePerStream ->addInteger(receiverID, globalStreamID, counter);
 //

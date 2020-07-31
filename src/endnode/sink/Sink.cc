@@ -84,7 +84,7 @@ void Sink::processEthernetFrameAtDestination(EthernetFrame* ethMsg)
     // Process end-to-end delay
     if (e2ePathDelayForStream.dbl() > 0)
     {
-        StatisticManager::getInstance().getDelayStatistics()->addE2ELatency(this->macAddress, ethMsg->getStreamID(), e2ePathDelayForStream);
+        StatisticManager::getInstance().getDelayStatistics()->addE2ELatency(this->macAddress, ethMsg->getStreamID(), ethMsg->getPriority(), e2ePathDelayForStream);
     }
     else
     {

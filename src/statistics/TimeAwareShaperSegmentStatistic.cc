@@ -30,7 +30,7 @@ void TimeAwareShaperSegmentStatistic::criticalSendingSegmentStarts(int switchMac
 {
     if (this->tasPortTimeSegments == 0)
     {
-        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port");
+        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port","");
     }
 
     this->tasPortTimeSegments->addInteger(switchMac, portIndex, CRITICAL_SENDING_SEGMENT);
@@ -41,7 +41,7 @@ void TimeAwareShaperSegmentStatistic::criticalGuardbandSegmentStarts(int switchM
 {
     if (this->tasPortTimeSegments == 0)
     {
-        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port");
+        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port","");
     }
     this->tasPortTimeSegments->addInteger(switchMac, portIndex, CRITICAL_GUARDBAND_SEGMENT);
 }
@@ -51,7 +51,7 @@ void TimeAwareShaperSegmentStatistic::noncriticalSendingSegmentStarts(int switch
 {
     if (this->tasPortTimeSegments == 0)
     {
-        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port");
+        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port","");
     }
     this->tasPortTimeSegments->addInteger(switchMac, portIndex, NONCRITICAL_SENDING_SEGMENT);
 }
@@ -61,7 +61,7 @@ void TimeAwareShaperSegmentStatistic::noncriticalGuardbandSegmentStarts(int swit
 {
     if (this->tasPortTimeSegments == 0)
     {
-        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port");
+        this->tasPortTimeSegments = new VectorStatistics2DMap("TAS", "SW", "port","");
     }
     this->tasPortTimeSegments->addInteger(switchMac, portIndex, NONCRITICAL_GUARDBAND_SEGMENT);
 }

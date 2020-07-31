@@ -19,12 +19,12 @@ using std::pair;
 using std::map;
 
 
-VectorStatistics2DMap::VectorStatistics2DMap(const char* prefix, const char* modulePrefix, const char* submodulePrefix)
+VectorStatistics2DMap::VectorStatistics2DMap(const char* prefix, const char* modulePrefix, const char* submodulePrefix, const char* submoduleProperty)
 {
     this->prefix = prefix;
     this->modulePrefix = modulePrefix;
     this->submodulePrefix = submodulePrefix;
-
+    this->submoduleProperty = submoduleProperty;
 }
 
 VectorStatistics2DMap::~VectorStatistics2DMap()
@@ -35,25 +35,25 @@ VectorStatistics2DMap::~VectorStatistics2DMap()
 
 void VectorStatistics2DMap::addInteger(int moduleID, int submoduleID, int value)
 {
-    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID);
+    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID, 0);
     storedEntry.first->record(value);
     storedEntry.second = storedEntry.second + value;
 }
 
-void VectorStatistics2DMap::addLatency(int moduleID, int submoduleID, simtime_t value)
+void VectorStatistics2DMap::addLatency(int moduleID, int submoduleID, simtime_t value, int priority)
 {
-    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID);
+    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID, priority);
     storedEntry.first->record(value);
 }
 
 void VectorStatistics2DMap::accumulateInteger(int moduleID, int submoduleID, int value)
 {
-    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID);
+    pair<cOutVector*, long> & storedEntry = getEntry(moduleID, submoduleID, 0);
     storedEntry.second = storedEntry.second + value;
     storedEntry.first->record(storedEntry.second);
 }
 
-pair<cOutVector*, long>& VectorStatistics2DMap::getEntry(int moduleID, int submoduleID)
+pair<cOutVector*, long>& VectorStatistics2DMap::getEntry(int moduleID, int submoduleID, int priority)
 {
     if (this->storedMeasurements == 0)
     {
@@ -70,7 +70,7 @@ pair<cOutVector*, long>& VectorStatistics2DMap::getEntry(int moduleID, int submo
     if (moduleMap->count(submoduleID) == 0)
     {
         char buffer[80];
-        sprintf(buffer, "%s:%s=%d_%s=%d", this->prefix, this->modulePrefix, moduleID, this->submodulePrefix, submoduleID);
+        sprintf(buffer, "%s:%s=%d_%s=%d:%s=%d", this->prefix, this->modulePrefix, moduleID, this->submodulePrefix, submoduleID, this->submoduleProperty, priority);
         (*moduleMap)[submoduleID] = pair<cOutVector*, long>(new cOutVector(buffer), 0);
     }
 

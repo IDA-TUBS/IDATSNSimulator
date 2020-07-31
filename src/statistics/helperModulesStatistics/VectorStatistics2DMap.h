@@ -38,7 +38,7 @@ public:
      * @param module_fix
      * @param submodule_fix
      */
-    VectorStatistics2DMap(const char* prefix, const char* modulePrefix, const char* submodulePrefix);
+    VectorStatistics2DMap(const char* prefix, const char* modulePrefix, const char* submodulePrefix, const char* submoduleProperty);
     /**
      * Destructor of the class, nothing to do here
      */
@@ -67,7 +67,7 @@ public:
      * @param submoduleID - id of the module for which the statistics has been taken e.g. streamID
      * @param value - the measured value, must be an simtime_t
      */
-    void addLatency(int moduleID, int submpduleID, simtime_t value);
+    void addLatency(int moduleID, int submpduleID, simtime_t value, int priority);
 
 private:
     ///vector containing the stored results
@@ -81,6 +81,8 @@ private:
     const char* submodulePrefix;
     ///value prefix is a string allowing to identify the type of stored data
     const char* valuePrefix;
+    //submoduleProperty is a string allowing to add a detailed description the type of stored data
+    const char* submoduleProperty;
 
     /**
      * Function which returns an entry identified by parameters
@@ -88,7 +90,7 @@ private:
      * @param submodule_ID - module for which measurmenet has been take e.g. streamID
      * @return
      */
-    std::pair<cOutVector*, long>& getEntry(int module_ID, int submodule_ID);
+    std::pair<cOutVector*, long>& getEntry(int module_ID, int submodule_ID, int priority);
 };
 
 #endif /* ETHERNET_CLASSES_COLLECTION_COLLECTIONS_VECTORSTATISTICS2DMAP_H_ */

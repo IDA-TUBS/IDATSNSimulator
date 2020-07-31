@@ -28,14 +28,14 @@ E2ELatencyStatistics::~E2ELatencyStatistics()
 }
 
 
-int E2ELatencyStatistics::addE2ELatency(int receiverID, int globalStreamID, omnetpp::simtime_t delay)
+int E2ELatencyStatistics::addE2ELatency(int receiverID, int globalStreamID, int priority, omnetpp::simtime_t delay)
 {
     /* collect in vector */
     if (this->vectorE2EStatistics == 0)
     {
-        this->vectorE2EStatistics = new VectorStatistics2DMap("E2E-delay", "Recv", "SID");
+        this->vectorE2EStatistics = new VectorStatistics2DMap("E2E-delay", "Recv", "SID", "Priority");
     }
-    this->vectorE2EStatistics->addLatency(receiverID, globalStreamID, delay);
+    this->vectorE2EStatistics->addLatency(receiverID, globalStreamID, delay, priority);
 
     /* collect in histogram */
     if (this->histogramE2Estatistics == 0){
