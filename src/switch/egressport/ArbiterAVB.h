@@ -96,12 +96,15 @@ class ArbiterAVB : public cSimpleModule
     private:
 
         std::vector<ethernetHeaderInformation*> currentBufferStatusList;
-        int numberPriorities;
         cModule* parentModul;
         cGate* parentGateOut;
         cChannel* parentChannelOut;
         double channelTransmissionRate;
+        /// index of the EgressPort via which the frame is forwarded
         int egressPortIndex;
+        /// number of supported priorities (= default 8 priorities)
+        int numberPriorities;
+        /// MAC address of the switch
         int macAddress;
 
         configVector avbTableVector;
@@ -111,8 +114,11 @@ class ArbiterAVB : public cSimpleModule
         csvVector config;
         std::string configFile;
 
+        /// variable that indicates that the arbitration is already in progress
         bool arbiterIsBusy;
+        /// variable that indicates that a frame is stored; used for destructor
         bool ethernetFrameIsWaiting;
+        /// arbiter stores only one Ethernet frame which must wait for its transmission to simulate transmission delay
         EthernetFrame* ethernetFrameWaitForSend;
         cMessage* triggerSelf = new cMessage();
         std::vector<arbiterAVBClass*> classInformations;

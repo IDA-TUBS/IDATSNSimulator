@@ -160,6 +160,8 @@ private:
     /// variable that indicates that the arbitration is already in progress
     bool arbiterIsBusy;
 
+    bool ethernetFrameIsWaiting;
+
     bool frameStoredInBuffer;
 
     /**

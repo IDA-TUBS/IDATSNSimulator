@@ -31,6 +31,10 @@ ArbiterIEEE802_1Qbv::~ArbiterIEEE802_1Qbv()
     {
         cancelAndDelete(this->triggerSelf);
     }
+    if (this->ethernetFrameIsWaiting == true)
+    {
+        delete(this->ethernetFrameWaitForTransmission);
+    }
 }
 
 /* -------- INITIALIZATION -------- */
@@ -425,9 +429,10 @@ void ArbiterIEEE802_1Qbv::sendFrameOut()
     }
 
     int streamID = ethernetFrameWaitForTransmission->getStreamID();
-    EV<<"finished sending � " << streamID <<"\n";
+
     StatisticManager::getInstance().getLinkTransmissionStatistics()->ethernetFrameFinishedSending(switchMAC, portIndex, streamID);
     send(this->ethernetFrameWaitForTransmission,"out");
+    this->ethernetFrameIsWaiting = false;
     EV << "["<< this->getClassName() << "] send next frame out"<< "\n";
 }
 
@@ -579,8 +584,9 @@ void ArbiterIEEE802_1Qbv::dealWithEthernetFrame(cMessage* frame)
         EV << "["<< this->getClassName() <<"] ERROR: Could not cast message to EthernetFrame!" << "\n";
         throw cRuntimeError("ERROR: Could not cast message to EthernetFrame!");
     }
+    this->ethernetFrameIsWaiting = true;
     this->ethernetFrameWaitForTransmission = ethernetFrame;
-    EV<<"start sending � " << streamID <<"\n";
+
     StatisticManager::getInstance().getLinkTransmissionStatistics()->ethernetFrameStartedSending(switchMAC, portIndex, streamID);
     simtime_t transmissionPathDelay;
     transmissionPathDelay = calculateTransmissionDelay(ethernetFrame);
