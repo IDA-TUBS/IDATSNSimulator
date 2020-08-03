@@ -17,12 +17,16 @@
 
 ArbiterAVB::ArbiterAVB()
 {
-
+    //this->ethernetFrameWaitForSend = new EthernetFrame;
 }
 
 ArbiterAVB::~ArbiterAVB()
 {
     cancelAndDelete(this->triggerSelf);
+    if (this->ethernetFrameIsWaiting == true)
+    {
+        delete(this->ethernetFrameWaitForSend);
+    }
 }
 
 /*
@@ -35,9 +39,12 @@ void ArbiterAVB::initialize()
     this->macAddress = this->parentModul->getParentModule()->par("mac");
     this->egressPortIndex = this->parentModul->getIndex();
     this->arbiterIsBusy = false;
+    this->ethernetFrameIsWaiting = false;
 
     calculateTransmissionSpeed();
     initializeAVBClassInformation();
+
+
 
     //debugStatusInitialization();
 
@@ -192,6 +199,7 @@ void ArbiterAVB::dealWithEthernetFrame(cMessage* message)
 {
     EthernetFrame* ethernetFrame = checkAndCastEthernetFrame(message);
 
+    this->ethernetFrameIsWaiting = true;
     this->ethernetFrameWaitForSend = ethernetFrame;
 
     simtime_t transmissionPathDelay;
@@ -595,6 +603,9 @@ void ArbiterAVB::sendFrameOut()
         throw cRuntimeError("[ArbiterAVB] ERROR: No frame to send!");
     }
     send(this->ethernetFrameWaitForSend,"out");
+
+    this->ethernetFrameIsWaiting = false;
+
     EV << "[ArbiterAVB] send next frame out"<< "\n";
 }
 

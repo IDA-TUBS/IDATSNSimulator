@@ -62,6 +62,7 @@ class ArbiterIEEE802_3 : public cSimpleModule
         cChannel* parentChannelOut;
         double channelTransmissionRate;
         bool arbiterIsBusy;
+        bool ethernetFrameIsWaiting;
         EthernetFrame* ethernetFrameWaitForSend;
         cMessage* triggerSelf = new cMessage();
         int rememberLastWinner;

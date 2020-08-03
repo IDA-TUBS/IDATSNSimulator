@@ -112,6 +112,7 @@ class ArbiterAVB : public cSimpleModule
         std::string configFile;
 
         bool arbiterIsBusy;
+        bool ethernetFrameIsWaiting;
         EthernetFrame* ethernetFrameWaitForSend;
         cMessage* triggerSelf = new cMessage();
         std::vector<arbiterAVBClass*> classInformations;

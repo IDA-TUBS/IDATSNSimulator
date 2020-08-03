@@ -23,6 +23,10 @@ ArbiterIEEE802_3::ArbiterIEEE802_3()
 ArbiterIEEE802_3::~ArbiterIEEE802_3()
 {
     cancelAndDelete(this->triggerSelf);
+    if (this->ethernetFrameIsWaiting == true)
+    {
+        delete(this->ethernetFrameWaitForSend);
+    }
 }
 
 /*
@@ -33,6 +37,7 @@ void ArbiterIEEE802_3::initialize()
     this->parentModul = getParentModule();
     this->numberPriorities = (int) this->par("supportedPriorities");
     this->arbiterIsBusy = false;
+    this->ethernetFrameIsWaiting = false;
 
     this->rememberLastWinner = this->numberPriorities -1;
 
@@ -101,6 +106,7 @@ void ArbiterIEEE802_3::dealWithEthernetFrame(cMessage* frame)
         EV << "[ArbiterIEEE802_3] ERROR: Could not cast to EthernetFrame* in ArbiterIEEE802_3!" << "\n";
         throw cRuntimeError("[ArbiterIEEE802_3] ERROR: Could not cast to EthernetFrame* in ArbiterIEEE802_3!");
     }
+    this->ethernetFrameIsWaiting = true;
     this->ethernetFrameWaitForSend = ethernetFrame;
 
     simtime_t transmissionPathDelay;
@@ -312,6 +318,8 @@ void ArbiterIEEE802_3::sendFrameOut()
     }
 
     send(this->ethernetFrameWaitForSend,"out");
+    this->ethernetFrameIsWaiting = false;
+
     EV << "[ArbiterIEEE802_3] send next frame out"<< "\n";
 }
 

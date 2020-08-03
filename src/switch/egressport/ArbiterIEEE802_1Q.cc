@@ -23,8 +23,10 @@ ArbiterIEEE802_1Q::ArbiterIEEE802_1Q()
 ArbiterIEEE802_1Q::~ArbiterIEEE802_1Q()
 {
     cancelAndDelete(this->triggerSelf);
-    //if this->ethernetFrameWaitForSend->
-    //delete ethernetFrameWaitForSend;
+    if (this->ethernetFrameIsWaiting == true)
+    {
+        delete(this->ethernetFrameWaitForSend);
+    }
 }
 
 /*
@@ -35,6 +37,7 @@ void ArbiterIEEE802_1Q::initialize()
     this->parentModul = getParentModule();
     this->numberPriorities = (int) this->par("supportedPriorities");
     this->arbiterIsBusy = false;
+    this->ethernetFrameIsWaiting = false;
 
     calculateTransmissionSpeed();
 }
@@ -101,6 +104,7 @@ void ArbiterIEEE802_1Q::dealWithEthernetFrame(cMessage* frame)
         EV << "[ArbiterIEEE802_1Q] ERROR: Could not cast to EthernetFrame in ArbiterIEEE802_1Q!" << "\n";
         throw cRuntimeError("[ArbiterIEEE802_1Q] ERROR: Could not cast to EthernetFrame in ArbiterIEEE802_1Q!");
     }
+    this->ethernetFrameIsWaiting = true;
     this->ethernetFrameWaitForSend = ethernetFrame;
 
     simtime_t transmissionPathDelay;
@@ -301,5 +305,7 @@ void ArbiterIEEE802_1Q::sendFrameOut()
     }
 
     send(this->ethernetFrameWaitForSend,"out");
+    this->ethernetFrameIsWaiting = false;
+
     EV << "[ArbiterIEEE802_1Q] send next frame out"<< "\n";
 }
