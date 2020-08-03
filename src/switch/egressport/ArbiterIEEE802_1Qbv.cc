@@ -39,6 +39,13 @@ void ArbiterIEEE802_1Qbv::initialize()
     // get time values set by user
     this->periodDuration = getPeriodDuration();
     this->criticalIntervalDuration = getCriticalIntervalDuration();
+
+    if(this->periodDuration < this->criticalIntervalDuration)
+    {
+        EV_ERROR <<"ERROR in ["<< this->getClassName()<<"] period duration is smaller than critical interval duration. \n";
+        throw cRuntimeError("ERROR period duration is smaller than critical interval duration");
+    }
+
     this->noncriticalIntervalDuration = this->periodDuration - this->criticalIntervalDuration;
 
     // get maximum payload size critical and noncritical
@@ -307,7 +314,6 @@ int ArbiterIEEE802_1Qbv::getNextState(int currentState)
  */
 void ArbiterIEEE802_1Qbv::initializeTimerMessage()
 {
-    this->segmentTriggerTimerMessage = new cMessage();
     this->segmentTriggerTimerMessage->setName("TimeAwareTrigger");
     this->segmentTriggerTimerMessage->addPar("nextState").setLongValue(this->nextState);
     scheduleAt(this->triggerTimer, this->segmentTriggerTimerMessage);

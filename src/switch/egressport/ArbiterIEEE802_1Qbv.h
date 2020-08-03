@@ -145,7 +145,7 @@ private:
     simtime_t triggerTimer;
 
     /// cMessage timer for changing states (time segments)
-    cMessage* segmentTriggerTimerMessage;
+    cMessage* segmentTriggerTimerMessage = new cMessage();
     /// cMessage timer for trigger Ethernet frame transmission
     cMessage* triggerSelf = new cMessage();
 
