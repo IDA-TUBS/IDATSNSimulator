@@ -59,11 +59,13 @@ int BuffersModule::getMaximumBufferSize()
 {
     int maxBytesPerQueue = (int)this->par("maxBytesPerQueue");
 
-    // TODO
-    //if (maxBytesPerQueue == -1)
-    //{
-    //    return (100000);
-    //}
+    // -1 is an indicator for a very large buffer size
+    if (maxBytesPerQueue == -1)
+    {
+        int size = 1000000;
+        return size;
+    }
+
     return maxBytesPerQueue;
 }
 
@@ -72,7 +74,7 @@ void BuffersModule::setUpFrameBuffers()
 {
     this->frameBuffers.resize(this->numberSupportedPriorities, NULL);
 
-   //configure buffers for ethernet messages
+   //configure buffers for Ethernet messages
    for(int iteratorPriority = 0; iteratorPriority < this->numberSupportedPriorities; iteratorPriority++)
    {
        //instantiate new buffer with one priority and a defined size
@@ -85,7 +87,8 @@ void BuffersModule::handleMessage(cMessage* message)
 {
     if(message->isSelfMessage())    //sanity check
     {
-        //TODO: ERROR, no internal messages to deal with
+        EV_ERROR << "["<< this->getClassName()<<"] Unknown message type. Cannot handle self message \n";
+        throw cRuntimeError(" Unknown message type. Cannot handle self message");
     }
 
     dealWithExternalMessage(message);
@@ -142,7 +145,6 @@ BufferControlMessage* BuffersModule::castMessageIntoBufferControlMessage(cMessag
 
    if(bufferControlMessage == nullptr)
    {
-       //TODO: Error Message
        EV <<("[BuffersModule] ERROR!");
        throw cRuntimeError("[BuffersModule] ERROR !");
    }
@@ -173,9 +175,8 @@ void BuffersModule::handleBufferControlInstruction(int instruction, BufferContro
             delete controlMessage;
             break;
         default:
-            //TODO: Throw Error-Message
-            EV <<("[BuffersModule] ERROR!");
-            throw cRuntimeError("[BuffersModule] ERROR !");
+            EV_ERROR <<"ERROR in ["<< this->getClassName() <<"] parameter " << instruction << " is an unknown instruction in BufferControlMessage";
+            throw cRuntimeError("ERROR unknown BufferControlMessage instruction!");
     }
 }
 
@@ -209,9 +210,8 @@ EthernetFrame* BuffersModule::castMessageIntoEthernetFrame(cMessage* message)
 
     if(ethernetFrame == nullptr)
     {
-        //TODO: Error Message
-        EV <<("[BuffersModule] ERROR!");
-        throw cRuntimeError("[BuffersModule] ERROR !");
+        EV_ERROR <<"ERROR in ["<<this->getClassName() <<"] Message cannot cast into an Ethernet frame.";
+        throw cRuntimeError("ERROR: Message cannot cast into an Ethernet frame!");
     }
 
     return ethernetFrame;
