@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef __sink_H_
-#define __sink_H_
+#ifndef SRC_ENDNODE_SINK_SINK_H_
+#define SRC_ENDNODE_SINK_SINK_H_
 
 #include <omnetpp.h>
 #include <stdio.h>

@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_PARTICIPANT_H_
-#define RTPS_PARTICIPANT_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_PARTICIPANT_PARTICIPANT_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_PARTICIPANT_PARTICIPANT_H_
 
 
 #include <omnetpp.h>
@@ -80,4 +80,4 @@ class Participant : public cSimpleModule
 
 Define_Module(Participant);
 
-#endif /* RTPS_PARTICIPANT_H_ */
+#endif

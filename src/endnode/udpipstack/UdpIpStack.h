@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef _ENDNODE_UDPIPSTACK_H_
-#define _ENDNODE_UDPIPSTACK_H_
+#ifndef SRC_ENDNODE_UDPIPSTACK_UDPIPSTACK_H_
+#define SRC_ENDNODE_UDPIPSTACK_UDPIPSTACK_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -50,4 +50,4 @@ public:
 
 Define_Module(UdpIpStack);
 
-#endif /* _ENDNODE_UDPIPSTACK_H_ */
+#endif /* SRC_ENDNODE_UDPIPSTACK_UDPIPSTACK_H_ */

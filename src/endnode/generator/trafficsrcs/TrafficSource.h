@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef NODE_GENERATOR_TRAFFICSOURCE_H_
-#define NODE_GENERATOR_TRAFFICSOURCE_H_
+#ifndef SRC_ENDNODE_GENERATOR_TRAFFICSRCS_TRAFFICSOURCE_H_
+#define SRC_ENDNODE_GENERATOR_TRAFFICSRCS_TRAFFICSOURCE_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -86,4 +86,4 @@ private:
 
 Define_Module(TrafficSource);
 
-#endif /* NODE_GENERATOR_TRAFFICSOURCE_H_ */
+#endif /* SRC_ENDNODE_GENERATOR_TRAFFICSRCS_TRAFFICSOURCE_H_ */

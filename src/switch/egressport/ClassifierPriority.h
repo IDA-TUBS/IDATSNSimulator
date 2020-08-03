@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_
-#define SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_
+#ifndef SRC_SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_
+#define SRC_SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_
 
 #include <omnetpp.h>;
 #include "../../messagetype/EthernetFrame_m.h"
@@ -58,4 +58,4 @@ private:
 
 Define_Module(ClassifierPriority);
 
-#endif /* SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_ */
+#endif /* SRC_SWITCH_EGRESSPORT_CLASSIFIERPRIORITY_H_ */

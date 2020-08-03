@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_ENTITIES_READER_H_
-#define RTPS_ENTITIES_READER_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_READER_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_READER_H_
 
 #include "../../../../endnode/middleware/rtps/entities/Endpoint.h"
 #include "../../../../endnode/middleware/rtps/entities/HistoryEntry.h"
@@ -173,4 +173,4 @@ class Reader : public cSimpleModule, Endpoint
 
 Define_Module(Reader);
 
-#endif /* RTPS_ENTITIES_READER_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_READER_H_ */

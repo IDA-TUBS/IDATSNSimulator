@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef SWITCH_EGRESSPORT_ARBITERIEEE8021Q_H_
-#define SWITCH_EGRESSPORT_ARBITERIEEE8021Q_H_
+#ifndef SRC_SWITCH_EGRESSPORT_ARBITERIEEE8023_H_
+#define SRC_SWITCH_EGRESSPORT_ARBITERIEEE8023_H_
 
 #include <stdio.h>
 #include <fstream>
@@ -171,4 +171,4 @@ class ArbiterIEEE802_3 : public cSimpleModule
 
 Define_Module(ArbiterIEEE802_3);
 
-#endif /* SWITCH_EGRESSPORT_ARBITERIEEE8021Q_H_ */
+#endif /* SRC_SWITCH_EGRESSPORT_ARBITERIEEE8023_H_ */

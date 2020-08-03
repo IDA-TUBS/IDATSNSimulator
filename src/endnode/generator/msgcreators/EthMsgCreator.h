@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef NODE_EthMsgCreator_H_
-#define NODE_EthMsgCreator_H_
+#ifndef SRC_ENDNODE_GENERATOR_MSGCREATORS_ETHMSGGENERATOR_H_
+#define SRC_ENDNODE_GENERATOR_MSGCREATORS_ETHMSGGENERATOR_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -71,4 +71,4 @@ protected:
 
 Define_Module(EthMsgCreator);
 
-#endif /* NODE_EthMsgCreator_H_ */
+#endif /* SRC_ENDNODE_GENERATOR_MSGCREATORS_ETHMSGGENERATOR_H_ */

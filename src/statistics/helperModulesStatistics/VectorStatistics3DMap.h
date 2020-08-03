@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef ETHERNET_CLASSES_COLLECTION_VECTORSTATISTICS3DMAP_H_
-#define ETHERNET_CLASSES_COLLECTION_VECTORSTATISTICS3DMAP_H_
+#ifndef SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS3DMAP_H_
+#define SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS3DMAP_H_
 
 #include <omnetpp.h>
 #include <tuple>
@@ -97,4 +97,4 @@ private:
     pair<cOutVector*, long>& getEntry(int moduleID, int submoduleID, int valueID, const std::string& valueIDStr);
 };
 
-#endif /* ETHERNET_CLASSES_COLLECTION_VECTORSTATISTICS3DMAP_H_ */
+#endif /* SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS3DMAP_H_ */

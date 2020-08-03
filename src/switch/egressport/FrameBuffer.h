@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef SWITCH_EGRESSPORT_FRAMEBUFFER_H_
-#define SWITCH_EGRESSPORT_FRAMEBUFFER_H_
+#ifndef SRC_SWITCH_EGRESSPORT_FRAMEBUFFER_H_
+#define SRC_SWITCH_EGRESSPORT_FRAMEBUFFER_H_
 
 #include <omnetpp.h>
 #include <iostream>
@@ -158,4 +158,4 @@ private:
     bool freeSpaceInBuffer(int frameLenght);
 };
 
-#endif /* SWITCH_EGRESSPORT_FRAMEBUFFER_H_ */
+#endif /* SRC_SWITCH_EGRESSPORT_FRAMEBUFFER_H_ */

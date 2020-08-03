@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef ETHERNET_CLASSES_COLLECTION_COLLECTIONS_VECTORSTATISTICS2DMAP_H_
-#define ETHERNET_CLASSES_COLLECTION_COLLECTIONS_VECTORSTATISTICS2DMAP_H_
+#ifndef SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS2DMAP_H_
+#define SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS2DMAP_H_
 
 #include <omnetpp.h>
 #include <tuple>
@@ -73,7 +73,7 @@ private:
     ///vector containing the stored results
     std::map<int, std::map<int, std::pair<cOutVector*, long>>*>* storedMeasurements = 0;
 
-    ///prefix is a string which stores information allowing to indentify the type of statistics which is gathered e.g. E2E latency, packet drop etc.
+    ///prefix is a string which stores information allowing to identify the type of statistics which is gathered e.g. E2E latency, packet drop etc.
     const char* prefix;
     ///modulePrefix is a string which denotes the module where statistics are gathered e.g. sink with a selected ID
     const char* modulePrefix;
@@ -87,10 +87,10 @@ private:
     /**
      * Function which returns an entry identified by parameters
      * @param module_ID - module where measurement has been takes e.g. bufferID
-     * @param submodule_ID - module for which measurmenet has been take e.g. streamID
+     * @param submodule_ID - module for which measurement has been take e.g. streamID
      * @return
      */
     std::pair<cOutVector*, long>& getEntry(int module_ID, int submodule_ID, int priority);
 };
 
-#endif /* ETHERNET_CLASSES_COLLECTION_COLLECTIONS_VECTORSTATISTICS2DMAP_H_ */
+#endif /* SRC_STATISTICS_HELPERMODULESSTATISTICS_VECTORSTATISTICS2DMAP_H_ */

@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef _RTPS_RTPSTOETHERNETADAPTER_H_
-#define _RTPS_RTPSTOETHERNETADAPTER_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_RTPSTOETHERNETADAPTER_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_RTPSTOETHERNETADAPTER_H_
 
 #include "../../../../common/ValidationHandler.h"
 #include "../../../../endnode/middleware/rtps/messages/RTPSEthMessage_m.h"
@@ -78,4 +78,4 @@ class RtpsToEthernetAdapter : public cSimpleModule
 
 };
 
-#endif /* _RTPS_RTPSTOETHERNETADAPTER_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_RTPSTOETHERNETADAPTER_H_ */

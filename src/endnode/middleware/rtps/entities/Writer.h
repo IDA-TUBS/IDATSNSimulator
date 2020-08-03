@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_ENTITIES_WRITER_H_
-#define RTPS_ENTITIES_WRITER_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_WRITER_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_WRITER_H_
 
 
 #include "../../../../endnode/middleware/rtps/entities/Endpoint.h"
@@ -129,4 +129,4 @@ class Writer : public cSimpleModule, Endpoint
 
 Define_Module(Writer);
 
-#endif /* RTPS_ENTITIES_WRITER_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_WRITER_H_ */

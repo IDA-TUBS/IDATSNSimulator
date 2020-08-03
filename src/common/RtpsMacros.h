@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPSMACROS_H_
-#define RTPSMACROS_H_
+#ifndef SRC_COMMON_RTPSMACROS_H_
+#define SRC_COMMON_RTPSMACROS_H_
 
 #include <math.h>
 #include <stdlib.h>
@@ -58,4 +58,4 @@ enum rtpsEntityKind
 };
 
 
-#endif /* RTPSMACROS_H_ */
+#endif /* SRC_COMMON_RTPSMACROS_H_ */

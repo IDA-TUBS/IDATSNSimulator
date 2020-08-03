@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_RTPS_H_
-#define RTPS_RTPS_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_RTPS_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_RTPS_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -43,4 +43,4 @@ class Rtps : public cSimpleModule
 };
 
 
-#endif /* RTPS_RTPS_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_RTPS_H_ */

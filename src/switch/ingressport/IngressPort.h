@@ -13,6 +13,9 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
+#ifndef SRC_SWITCH_INGRESSPORT_INGRESSPORT_H_
+#define SRC_SWITCH_INGRESSPORT_INGRESSPORT_H_
+
 #include <stdio.h>
 #include <string.h>
 #include <omnetpp.h>
@@ -94,3 +97,4 @@ class IngressPort : public cSimpleModule
 };
 
 Define_Module(IngressPort);
+#endif

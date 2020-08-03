@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef ETHERNET_CLASSES_COLLECTION_PATHDELAYSTATISTICS_H_
-#define ETHERNET_CLASSES_COLLECTION_PATHDELAYSTATISTICS_H_
+#ifndef SRC_STATISTICS_E2ELATENCYSTATISTICS_H_
+#define SRC_STATISTICS_E2ELATENCYSTATISTICS_H_
 
 #include <omnetpp.h>
 #include <string>
@@ -67,4 +67,4 @@ private:
     HistogramStatistics2DMap* histogramE2Estatistics = 0;
 };
 
-#endif /* ETHERNET_CLASSES_COLLECTION_PATHDELAYSTATISTICS_H_ */
+#endif /* SRC_STATISTICS_E2ELATENCYSTATISTICS_H_ */

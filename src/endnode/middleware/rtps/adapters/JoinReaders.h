@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef _RTPS_ETHERNETADAPTER_H_
-#define _RTPS_ETHERNETADAPTER_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_JOINREADERS_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_JOINREADERS_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -58,4 +58,4 @@ class JoinReaders : public cSimpleModule
 
 
 
-#endif /* _RTPS_ETHERNETADAPTER_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_ADAPTERS_JOINREADERS_H_ */

@@ -14,8 +14,8 @@
 //
 
 
-#ifndef COMMON_VALIDATIONHANDLER_H_
-#define COMMON_VALIDATIONHANDLER_H_
+#ifndef SRC_COMMON_VALIDATIONHANDLER_H_
+#define SRC_COMMON_VALIDATIONHANDLER_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -45,4 +45,4 @@ public:
 
 };
 
-#endif /* COMMON_VALIDATIONHANDLER_H_ */
+#endif /* SRC_COMMON_VALIDATIONHANDLER_H_ */

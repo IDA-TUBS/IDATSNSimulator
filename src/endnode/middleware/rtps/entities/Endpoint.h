@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_ENTITIES_ENDPOINT_H_
-#define RTPS_ENTITIES_ENDPOINT_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_ENDPOINT_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_ENDPOINT_H_
 
 #include "./../messages/RTPSEthMessage_m.h"
 
@@ -59,4 +59,4 @@ public:
 };
 
 
-#endif /* RTPS_ENTITIES_ENDPOINT_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_ENDPOINT_H_ */

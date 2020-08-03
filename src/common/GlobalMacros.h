@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef globalmacros
-#define globalmacros
+#ifndef SRC_COMMON_GLOBALMACROS_H_
+#define SRC_COMMON_GLOBALMACROS_H_
 
 #include <omnetpp.h>
 #include <unordered_set>

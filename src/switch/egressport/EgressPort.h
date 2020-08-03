@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef CLASSES_SWITCHES_COMPONENTS_EGRESSPORT_H_
-#define CLASSES_SWITCHES_COMPONENTS_EGRESSPORT_H_
+#ifndef SRC_SWITCH_EGRESSPORT_EGRESSPORT_H_
+#define SRC_SWITCH_EGRESSPORT_EGRESSPORT_H_
 
 #include <omnetpp.h>
 
@@ -39,4 +39,4 @@ public:
 
 Define_Module(EgressPort);
 
-#endif /* CLASSES_SWITCHES_COMPONENTS_EGRESSPORT_H_ */
+#endif /*  SRC_SWITCH_EGRESSPORT_EGRESSPORT_H_ */

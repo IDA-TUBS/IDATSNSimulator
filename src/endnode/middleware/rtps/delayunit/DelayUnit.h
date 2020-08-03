@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_
-#define ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -52,4 +52,4 @@ class DelayUnit : public cSimpleModule
 };
 
 
-#endif /* ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_ */
+#endif /* SRC_ENDNODE_MIDDLEWARE_RTPS_DELAYUNIT_DELAYUNIT_H_ */

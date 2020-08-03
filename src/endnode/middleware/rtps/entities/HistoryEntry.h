@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_HISTORYENTRY_H_
-#define RTPS_HISTORYENTRY_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_HISTORYENTRY_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_ENTITIES_HISTORYENTRY_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -178,4 +178,4 @@ class SampleFragment{
 };
 
 
-#endif /* RTPS_HISTORYENTRY_H_ */
+#endif

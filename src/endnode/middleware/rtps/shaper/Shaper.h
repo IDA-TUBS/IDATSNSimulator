@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef RTPS_HELPER_SHAPER_H_
-#define RTPS_HELPER_SHAPER_H_
+#ifndef SRC_ENDNODE_MIDDLEWARE_RTPS_SHAPER_SHAPER_H_
+#define SRC_ENDNODE_MIDDLEWARE_RTPS_SHAPER_SHAPER_H_
 
 #include "../../../../endnode/middleware/rtps/messages/RTPSEthMessage_m.h"
 
@@ -62,4 +62,4 @@ class Shaper : public cSimpleModule
 };
 
 
-#endif /* RTPS_HELPER_SHAPER_H_ */
+#endif

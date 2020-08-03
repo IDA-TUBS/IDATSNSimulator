@@ -14,8 +14,8 @@
 //
 
 
-#ifndef ETHERNETMACROS_H_
-#define ETHERNETMACROS_H_
+#ifndef SRC_COMMON_ETHERNETMACROS_H_
+#define SRC_COMMON_ETHERNETMACROS_H_
 
 #include <math.h>
 #include <stdlib.h>
@@ -47,18 +47,5 @@
 
 #define _std_eth_colour_ (_msg_red_)
 /*--------------------------*/
-
-/*-- ENUM definitions --*/
-
-
-// messages exchanged between output arbiter and helper w/i egress port
-enum _eth_egress_helper_message_type_
-{
-    frame_arrived = 0,          //frame has arrived at the egress port
-    frame_started_sending = 1,  //egress port has started sending a frame
-    frame_finished_sending = 3, //egress port has finished sending a frame
-    frame_dropped = 5,          //egress port has dropped a frame without sending
-    port_update = 10            //helper has sent a message to egress port telling it select a new frame
-};
 
 #endif

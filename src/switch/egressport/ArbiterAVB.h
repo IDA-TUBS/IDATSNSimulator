@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef SWITCH_EGRESSPORT_ARBITERAVB_H_
-#define SWITCH_EGRESSPORT_ARBITERAVB_H_
+#ifndef SRC_SWITCH_EGRESSPORT_ARBITERAVB_H_
+#define SRC_SWITCH_EGRESSPORT_ARBITERAVB_H_
 
 #include <omnetpp.h>;
 
@@ -318,4 +318,4 @@ class ArbiterAVB : public cSimpleModule
 
 Define_Module(ArbiterAVB);
 
-#endif /* SWITCH_EGRESSPORT_ARBITERAVB_H_ */
+#endif /* SRC_SWITCH_EGRESSPORT_ARBITERAVB_H_ */

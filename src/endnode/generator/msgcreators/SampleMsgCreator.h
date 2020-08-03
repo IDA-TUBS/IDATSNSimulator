@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef NODE_SampleMsgCreator_H_
-#define NODE_SampleMsgCreator_H_
+#ifndef SRC_ENDNODE_GENERATOR_MSGCREATORS_SAMPLEMSGCREATOR_H_
+#define SRC_ENDNODE_GENERATOR_MSGCREATORS_SAMPLEMSGCREATOR_H_
 
 #include <omnetpp.h>
 using namespace omnetpp;
@@ -67,4 +67,4 @@ protected:
 
 Define_Module(SampleMsgCreator);
 
-#endif /* NODE_SampleMsgCreator_H_ */
+#endif /* SRC_ENDNODE_GENERATOR_MSGCREATORS_SAMPLEMSGCREATOR_H_ */
