@@ -80,7 +80,7 @@ int FrameBuffer::getNextFrameLength()
     EthernetFrame* frame = this->frameBuffer.front();
 
     //frame length is equal to frame PayloadSize
-    frameLength = frame->getPayloadSize();
+    frameLength = frame->getPacketSize();
 
     return frameLength;
 }
@@ -88,7 +88,7 @@ int FrameBuffer::getNextFrameLength()
 
 void FrameBuffer::pushFrameToBack(EthernetFrame* frame)
 {
-    int frameLength = frame->getPayloadSize();
+    int frameLength = frame->getPacketSize();
 
 
 
@@ -139,7 +139,7 @@ EthernetFrame* FrameBuffer::popNextFrame()
     this->frameBuffer.pop_front();
 
     //frame length is equal to payload size
-    int frameLength = frame->getPayloadSize();
+    int frameLength = frame->getPacketSize();
 
     //update buffer size because of removing first frame
     this->bufferSize = updateFreeBufferSize(REMOVED_FRAME, frameLength);
