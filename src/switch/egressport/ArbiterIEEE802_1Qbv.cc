@@ -22,6 +22,7 @@ ArbiterIEEE802_1Qbv::ArbiterIEEE802_1Qbv()
 
 ArbiterIEEE802_1Qbv::~ArbiterIEEE802_1Qbv()
 {
+
     if(this->segmentTriggerTimerMessage)
     {
         cancelAndDelete(this->segmentTriggerTimerMessage);
@@ -31,6 +32,7 @@ ArbiterIEEE802_1Qbv::~ArbiterIEEE802_1Qbv()
     {
         cancelAndDelete(this->triggerSelf);
     }
+
     if (this->ethernetFrameIsWaiting == true)
     {
         delete(this->ethernetFrameWaitForTransmission);
@@ -85,6 +87,7 @@ void ArbiterIEEE802_1Qbv::initialize()
     this->nextState = getNextState(currentState);
 
     this->arbiterIsBusy = false;
+    this->ethernetFrameIsWaiting = false;
     this->frameStoredInBuffer = false;
 
     initializeTimerMessage();
@@ -433,6 +436,7 @@ void ArbiterIEEE802_1Qbv::sendFrameOut()
     StatisticManager::getInstance().getLinkTransmissionStatistics()->ethernetFrameFinishedSending(switchMAC, portIndex, streamID);
     send(this->ethernetFrameWaitForTransmission,"out");
     this->ethernetFrameIsWaiting = false;
+
     EV << "["<< this->getClassName() << "] send next frame out"<< "\n";
 }
 
@@ -591,6 +595,8 @@ void ArbiterIEEE802_1Qbv::dealWithEthernetFrame(cMessage* frame)
     simtime_t transmissionPathDelay;
     transmissionPathDelay = calculateTransmissionDelay(ethernetFrame);
 
+    EV <<"["<< this->getClassName() << "] new Ethernet frame arrived arbiter.\n";
+    EV << "transmission path delay is: " << transmissionPathDelay << "\n";
     setTriggerDelayEnd(transmissionPathDelay);
 }
 
