@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for idaTSNSimulator
+# OMNeT++/OMNEST Makefile for idaTSNSimulator-github
 #
 # This file was generated with the command:
 #  opp_makemake -f --deep -O out -I.
 #
 
 # Name of target to be created (-o option)
-TARGET = idaTSNSimulator$(D)$(EXE_SUFFIX)
+TARGET = idaTSNSimulator-github$(D)$(EXE_SUFFIX)
 TARGET_DIR = .
 
 # User interface (uncomment one) (-u option)
